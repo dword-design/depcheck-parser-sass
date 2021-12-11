@@ -29,7 +29,6 @@
     "@dword-design/base": "^8.0.0",
     "depcheck": "^1.4.1",
     "output-files": "^2.0.0",
-    "stealthy-require-no-leak": "^1.0.2",
     "with-local-tmp-dir": "^4.0.0"
   },
   "engines": {
