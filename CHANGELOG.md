@@ -1,3 +1,10 @@
+## [2.0.11](https://github.com/dword-design/depcheck-parser-sass/compare/v2.0.10...v2.0.11) (2021-12-11)
+
+
+### Bug Fixes
+
+* remove stealthy-require-no-leak ([ca943cb](https://github.com/dword-design/depcheck-parser-sass/commit/ca943cb4acc3eb602be1d1bbb728c4e524749055))
+
 ## [2.0.10](https://github.com/dword-design/depcheck-parser-sass/compare/v2.0.9...v2.0.10) (2021-07-20)
 
 
