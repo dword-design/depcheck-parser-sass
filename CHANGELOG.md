@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v2.0.14...v3.0.0) (2022-11-16)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#86](https://github.com/dword-design/depcheck-parser-sass/issues/86)) ([ca4d965](https://github.com/dword-design/depcheck-parser-sass/commit/ca4d965c2e98caa7e1ac6b0c6b4600c30aa0760b))
+
+
+### BREAKING CHANGES
+
+* drop node 12 support
+
 ## [2.0.14](https://github.com/dword-design/depcheck-parser-sass/compare/v2.0.13...v2.0.14) (2022-11-03)
 
 
