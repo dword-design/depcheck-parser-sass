@@ -2,6 +2,8 @@ import depcheck from 'depcheck'
 import outputFiles from 'output-files'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
+import self from '.'
+
 export default {
   'sass import': () =>
     withLocalTmpDir(async () => {
@@ -12,8 +14,6 @@ export default {
         },
         'src/index.scss': "@import '~bar';",
       })
-
-      const self = require('.')
 
       const result = await depcheck('.', {
         package: {

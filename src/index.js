@@ -6,7 +6,10 @@ import P from 'path'
 import requirePackageName from 'require-package-name'
 
 export default filePath => {
-  const result = sass.renderSync({ file: filePath, importer: importer() })
+  const result = sass.renderSync({
+    file: filePath,
+    importer: importer({ cwd: process.cwd() }),
+  })
 
   return (
     result.stats.includedFiles
