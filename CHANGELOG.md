@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.0...v3.0.1) (2022-11-28)
+
+
+### Bug Fixes
+
+* fix cwd ([fbe48e5](https://github.com/dword-design/depcheck-parser-sass/commit/fbe48e52e8b1f344a6e7eb188a941b67c876000e))
+
 # [3.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v2.0.14...v3.0.0) (2022-11-16)
 
 
