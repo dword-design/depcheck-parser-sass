@@ -1,3 +1,10 @@
+## [3.0.5](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.4...v3.0.5) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4.1.7 ([fd99ef3](https://github.com/dword-design/depcheck-parser-sass/commit/fd99ef378b35d50e21c8ac943ef2856b40f5c87f))
+
 ## [3.0.4](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.3...v3.0.4) (2023-04-09)
 
 
