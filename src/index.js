@@ -17,7 +17,7 @@ export default filePath => {
       path =>
         path[0] === '~'
           ? requirePackageName(path.substr(1))
-          : getPackageName(path |> replace(/\//g, P.sep)) // fix node-sass incorrect path format for windows
+          : getPackageName(path |> replace(/\//g, P.sep)), // fix node-sass incorrect path format for windows
     )
     |> compact
     |> uniq
