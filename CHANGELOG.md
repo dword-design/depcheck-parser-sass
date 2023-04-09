@@ -1,3 +1,10 @@
+## [3.0.3](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.2...v3.0.3) (2023-04-09)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#98](https://github.com/dword-design/depcheck-parser-sass/issues/98)) ([f6424ba](https://github.com/dword-design/depcheck-parser-sass/commit/f6424ba65bcfcc0500fdd9a919a7d53b6c139207))
+
 ## [3.0.2](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.1...v3.0.2) (2023-02-15)
 
 
