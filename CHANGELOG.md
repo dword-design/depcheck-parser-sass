@@ -1,3 +1,10 @@
+## [3.0.7](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.6...v3.0.7) (2023-04-10)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.23 ([6132812](https://github.com/dword-design/depcheck-parser-sass/commit/6132812327c2cf2887e33dbee9292010ab463f1b))
+
 ## [3.0.6](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.5...v3.0.6) (2023-04-10)
 
 
