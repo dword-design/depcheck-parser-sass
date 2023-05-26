@@ -8,6 +8,9 @@ export default path => {
   const result = sass.compile(path, {
     importers: [{ findFileUrl: url => url |> resolveCwd |> pathToFileURL }],
   })
+  console.log(result)
+  console.log(result.loadedUrls
+    |> map(url => getPackageName(url.pathname)))
 
   return (
     result.loadedUrls
