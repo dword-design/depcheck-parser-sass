@@ -4,17 +4,15 @@ import resolveCwd from 'resolve-cwd'
 import sass from 'sass'
 import { fileURLToPath, pathToFileURL } from 'url'
 
-export default path => {
-  const result = sass.compile(path, {
+export default filePath => {
+  const result = sass.compile(filePath, {
     importers: [{ findFileUrl: url => url |> resolveCwd |> pathToFileURL }],
   })
-  console.log(result)
-  console.log(result.loadedUrls |> map(url => fileURLToPath(url.href)))
-  console.log(result.loadedUrls |> map(url => getPackageName(url.pathname)))
 
   return (
     result.loadedUrls
-    |> map(url => getPackageName(url.pathname))
+    |> map(url => fileURLToPath(url))
+    |> map(importPath => getPackageName(importPath))
     |> compact
     |> uniq
   )
