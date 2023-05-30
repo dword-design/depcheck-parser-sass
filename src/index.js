@@ -1,9 +1,13 @@
 import { compact, map, uniq } from '@dword-design/functions'
+import enhancedResolve from 'enhanced-resolve'
 import getPackageName from 'get-package-name'
 import P from 'path'
-import resolveCwd from 'resolve-cwd'
 import sass from 'sass'
 import { fileURLToPath, pathToFileURL } from 'url'
+
+const resolve = enhancedResolve.create.sync({
+  extensions: ['.scss', '.sass', '.css'],
+})
 
 export default filePath => {
   if (P.basename(filePath).startsWith('_')) {
@@ -11,7 +15,12 @@ export default filePath => {
   }
 
   const result = sass.compile(filePath, {
-    importers: [{ findFileUrl: url => url |> resolveCwd |> pathToFileURL }],
+    importers: [
+      {
+        findFileUrl: url =>
+          resolve(P.dirname(P.resolve(filePath)), url) |> pathToFileURL,
+      },
+    ],
   })
 
   return (

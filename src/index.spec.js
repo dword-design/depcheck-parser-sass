@@ -11,10 +11,9 @@ export default tester(
   {
     'does not return duplicates': async () => {
       await outputFiles({
-        'foo.scss': '',
         'index.scss': endent`
-          @import 'bar/foo.scss';
-          @import 'bar/bar.scss';
+          @import 'bar/foo';
+          @import 'bar/bar';
         `,
         'node_modules/bar': {
           'bar.scss': '',
@@ -28,6 +27,7 @@ export default tester(
         'foo.scss': '',
         'index.scss': endent`
           @import 'bar';
+
           @import './foo';
         `,
         'node_modules/bar': {
@@ -42,6 +42,7 @@ export default tester(
         'foo.scss': '',
         'index.scss': endent`
           @import 'bar';
+
           @import './foo';
         `,
         'node_modules/bar': {
@@ -54,6 +55,50 @@ export default tester(
         package: {
           dependencies: {
             bar: '^1.0.0',
+          },
+        },
+        parsers: {
+          '**/*.scss': self,
+        },
+      })
+      expect(result.dependencies).toEqual([])
+    },
+    'subpath import commonjs': async () => {
+      await outputFiles({
+        'index.scss': "@import 'foo/sub'",
+        'node_modules/foo': {
+          'package.json': JSON.stringify({ type: 'commonjs' }),
+          'sub.scss': '',
+        },
+      })
+
+      const result = await depcheck('.', {
+        package: {
+          dependencies: {
+            foo: '^1.0.0',
+          },
+        },
+        parsers: {
+          '**/*.scss': self,
+        },
+      })
+      expect(result.dependencies).toEqual([])
+    },
+    'subpath import esm': async () => {
+      await outputFiles({
+        'index.scss': "@import 'foo/foo'",
+        'node_modules/foo': {
+          'bar.scss': '',
+          'package.json': JSON.stringify({
+            exports: { './foo': './bar.scss' },
+          }),
+        },
+      })
+
+      const result = await depcheck('.', {
+        package: {
+          dependencies: {
+            foo: '^1.0.0',
           },
         },
         parsers: {
