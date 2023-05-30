@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.0...v4.0.1) (2023-05-30)
+
+
+### Bug Fixes
+
+* fix underscore paths ([99eeaa3](https://github.com/dword-design/depcheck-parser-sass/commit/99eeaa3c48cf1931e8b9646fd3f6ccc702723bd2))
+
 # [4.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v3.0.10...v4.0.0) (2023-05-26)
 
 
