@@ -2,6 +2,7 @@ import { endent } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import depcheck from 'depcheck'
+import fs from 'fs-extra'
 import outputFiles from 'output-files'
 
 import self from './index.js'
@@ -60,6 +61,17 @@ export default tester(
         },
       })
       expect(result.dependencies).toEqual([])
+    },
+    'underscore file': async () => {
+      await fs.outputFile('_foo.scss', '$foo: $bar')
+
+      const result = await depcheck('.', {
+        package: {},
+        parsers: {
+          '**/*.scss': self,
+        },
+      })
+      expect(result.invalidFiles).toEqual({})
     },
   },
   [testerPluginTmpDir()],
