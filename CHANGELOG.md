@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.1...v4.0.2) (2023-05-30)
+
+
+### Bug Fixes
+
+* foo ([1c1b488](https://github.com/dword-design/depcheck-parser-sass/commit/1c1b488f35c6ff1fc806f2978868087169a7e110))
+
 ## [4.0.1](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.0...v4.0.1) (2023-05-30)
 
 
