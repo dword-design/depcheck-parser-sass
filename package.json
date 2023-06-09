@@ -25,7 +25,7 @@
     "@dword-design/functions": "^5.0.0",
     "enhanced-resolve": "^5.14.1",
     "get-package-name": "^2.0.0",
-    "sass": "^1.62.1"
+    "sass": "~1.62"
   },
   "devDependencies": {
     "@dword-design/base": "^10.0.0",
