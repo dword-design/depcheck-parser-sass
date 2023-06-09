@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.3...v4.0.4) (2023-06-09)
+
+
+### Bug Fixes
+
+* support underscore import ([03e3cb8](https://github.com/dword-design/depcheck-parser-sass/commit/03e3cb84c4c6d6eb2dede14a14038b15b1233496))
+
 ## [4.0.3](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.2...v4.0.3) (2023-06-09)
 
 
