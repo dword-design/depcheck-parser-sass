@@ -14,11 +14,28 @@ export default filePath => {
     return []
   }
 
+  const dir = P.dirname(P.resolve(filePath))
+
   const result = sass.compile(filePath, {
     importers: [
       {
-        findFileUrl: url =>
-          resolve(P.dirname(P.resolve(filePath)), url) |> pathToFileURL,
+        findFileUrl: url => {
+          try {
+            return resolve(dir, url) |> pathToFileURL
+          } catch (error) {
+            const urlWithUnderscore = url
+              .split('/')
+              .map((segment, index, arr) =>
+                index === arr.length - 1 ? `_${segment}` : segment,
+              )
+              .join('/')
+            try {
+              return resolve(dir, urlWithUnderscore) |> pathToFileURL
+            } catch {
+              throw error
+            }
+          }
+        },
       },
     ],
   })

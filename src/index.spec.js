@@ -4,6 +4,7 @@ import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import depcheck from 'depcheck'
 import fs from 'fs-extra'
 import outputFiles from 'output-files'
+import P from 'path'
 
 import self from './index.js'
 
@@ -36,6 +37,30 @@ export default tester(
         },
       })
       expect(self('index.scss')).toEqual(['bar'])
+    },
+    'error in subpath underscore import commonjs': async () => {
+      await outputFiles({
+        'index.scss': "@import 'foo/sub'",
+        'node_modules/foo': {
+          '_sub.scss': '$foo: $bar;',
+          'package.json': JSON.stringify({ type: 'commonjs' }),
+        },
+      })
+
+      const result = await depcheck('.', {
+        package: {
+          dependencies: {
+            foo: '^1.0.0',
+          },
+        },
+        parsers: {
+          '**/*.scss': self,
+        },
+      })
+      expect(Object.keys(result.invalidFiles).length).toEqual(1)
+      expect(result.invalidFiles[P.resolve('index.scss')].message).toMatch(
+        'Undefined variable.',
+      )
     },
     'sass import': async () => {
       await outputFiles({
@@ -92,6 +117,27 @@ export default tester(
           'package.json': JSON.stringify({
             exports: { './foo': './bar.scss' },
           }),
+        },
+      })
+
+      const result = await depcheck('.', {
+        package: {
+          dependencies: {
+            foo: '^1.0.0',
+          },
+        },
+        parsers: {
+          '**/*.scss': self,
+        },
+      })
+      expect(result.dependencies).toEqual([])
+    },
+    'subpath underscore import commonjs': async () => {
+      await outputFiles({
+        'index.scss': "@import 'foo/sub'",
+        'node_modules/foo': {
+          '_sub.scss': '',
+          'package.json': JSON.stringify({ type: 'commonjs' }),
         },
       })
 
