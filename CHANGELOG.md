@@ -1,3 +1,11 @@
+## [4.0.3](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.2...v4.0.3) (2023-06-09)
+
+
+### Bug Fixes
+
+* pin sass version ([9e457d2](https://github.com/dword-design/depcheck-parser-sass/commit/9e457d2794b6e615de6bcf8307c5d5e7a5749f65))
+* update dependency @dword-design/functions to v5 ([#103](https://github.com/dword-design/depcheck-parser-sass/issues/103)) ([b3751e3](https://github.com/dword-design/depcheck-parser-sass/commit/b3751e33f551131e4e35ae1913e8e4503e8c1d2d))
+
 ## [4.0.2](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.1...v4.0.2) (2023-05-30)
 
 
