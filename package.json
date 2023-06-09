@@ -22,7 +22,7 @@
     "test": "base test"
   },
   "dependencies": {
-    "@dword-design/functions": "^4.0.0",
+    "@dword-design/functions": "^5.0.0",
     "enhanced-resolve": "^5.14.1",
     "get-package-name": "^2.0.0",
     "sass": "^1.62.1"
