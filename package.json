@@ -33,7 +33,7 @@
     "@dword-design/tester-plugin-tmp-dir": "^2.1.26",
     "depcheck": "^1.4.1",
     "fs-extra": "^11.1.1",
-    "output-files": "^2.0.0"
+    "output-files": "^3.0.0"
   },
   "engines": {
     "node": ">=16"
