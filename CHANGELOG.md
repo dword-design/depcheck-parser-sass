@@ -1,3 +1,16 @@
+# [5.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.4...v5.0.0) (2025-07-20)
+
+
+### Bug Fixes
+
+* add playwright config ([8972f5e](https://github.com/dword-design/depcheck-parser-sass/commit/8972f5e68bd086ec700939b6ef6c8ded88eba9df))
+* lock file maintenance ([#120](https://github.com/dword-design/depcheck-parser-sass/issues/120)) ([ef1081b](https://github.com/dword-design/depcheck-parser-sass/commit/ef1081bf8303950c73273e11b3e3422d97452688))
+
+
+### BREAKING CHANGES
+
+* node.js >= 20
+
 ## [4.0.4](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.3...v4.0.4) (2023-06-09)
 
 
