@@ -34,7 +34,7 @@
     "enhanced-resolve": "^5.14.1",
     "get-package-name": "^2.0.0",
     "lodash-es": "^4.17.21",
-    "sass": "~1.62"
+    "sass": "~1.93.0"
   },
   "devDependencies": {
     "@dword-design/base": "^14.1.2",
