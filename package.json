@@ -37,7 +37,7 @@
     "sass": "~1.62"
   },
   "devDependencies": {
-    "@dword-design/base": "^14.1.2",
+    "@dword-design/base": "^15.0.0",
     "@playwright/test": "^1.54.1",
     "depcheck": "^1.4.1",
     "endent": "npm:@dword-design/endent@^1.4.7",
