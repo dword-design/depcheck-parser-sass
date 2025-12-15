@@ -1,3 +1,16 @@
+# [6.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v5.0.0...v6.0.0) (2025-12-15)
+
+
+### Bug Fixes
+
+* trigger release ([894db13](https://github.com/dword-design/depcheck-parser-sass/commit/894db13d169785e468eff0ef6e3ea2b7b5800293))
+* update dependency @dword-design/base to v16 ([#144](https://github.com/dword-design/depcheck-parser-sass/issues/144)) ([dcefdae](https://github.com/dword-design/depcheck-parser-sass/commit/dcefdae3f50a4c275b743f5adb10bf1343b21142))
+
+
+### BREAKING CHANGES
+
+* node >= 22
+
 # [5.0.0](https://github.com/dword-design/depcheck-parser-sass/compare/v4.0.4...v5.0.0) (2025-07-20)
 
 
