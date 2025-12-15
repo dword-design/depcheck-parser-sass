@@ -1,4 +1,4 @@
-import P from 'node:path';
+import pathLib from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import enhancedResolve from 'enhanced-resolve';
@@ -10,12 +10,12 @@ const resolve = enhancedResolve.create.sync({
   extensions: ['.scss', '.sass', '.css'],
 });
 
-export default filePath => {
-  if (P.basename(filePath).startsWith('_')) {
+export default (filePath: string) => {
+  if (pathLib.basename(filePath).startsWith('_')) {
     return [];
   }
 
-  const dir = P.dirname(P.resolve(filePath));
+  const dir = pathLib.dirname(pathLib.resolve(filePath));
 
   const result = sass.compile(filePath, {
     importers: [
