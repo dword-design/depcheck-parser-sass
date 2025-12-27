@@ -1,3 +1,11 @@
+## [6.0.2](https://github.com/dword-design/depcheck-parser-sass/compare/v6.0.1...v6.0.2) (2025-12-27)
+
+
+### Bug Fixes
+
+* foo ([fcf0fda](https://github.com/dword-design/depcheck-parser-sass/commit/fcf0fda22d8cbf788f61b7ed90f993a1be358b4c))
+* support _index as main files and make parser async ([9887ac8](https://github.com/dword-design/depcheck-parser-sass/commit/9887ac811dc1cab4bfdc8e53ace78f3d5968de18))
+
 ## [6.0.1](https://github.com/dword-design/depcheck-parser-sass/compare/v6.0.0...v6.0.1) (2025-12-27)
 
 
