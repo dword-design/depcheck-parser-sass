@@ -1,5 +1,4 @@
 import pathLib from 'node:path';
-import P from 'node:path';
 
 import { expect, test } from '@playwright/test';
 import depcheck from 'depcheck';
@@ -60,9 +59,9 @@ test('error in subpath underscore import commonjs', async ({}, testInfo) => {
 
   expect(Object.keys(result.invalidFiles).length).toEqual(1);
 
-  expect(result.invalidFiles[P.resolve(cwd, 'index.scss')].message).toMatch(
-    'Undefined variable.',
-  );
+  expect(
+    result.invalidFiles[pathLib.resolve(cwd, 'index.scss')].message,
+  ).toMatch('Undefined variable.');
 });
 
 test('sass import', async ({}, testInfo) => {
