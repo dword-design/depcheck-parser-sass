@@ -41,6 +41,7 @@
     "@types/lodash-es": "^4.17.12",
     "bulma": "^1.0.4",
     "depcheck": "^1.4.7",
+    "depcheck-package-name": "^5.0.0",
     "endent": "npm:@dword-design/endent@^1.4.7",
     "fs-extra": "^11.3.2",
     "output-files": "^3.0.0"

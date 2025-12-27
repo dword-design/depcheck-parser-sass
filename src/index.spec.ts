@@ -2,6 +2,7 @@ import pathLib from 'node:path';
 
 import { expect, test } from '@playwright/test';
 import depcheck from 'depcheck';
+import packageName from 'depcheck-package-name';
 import endent from 'endent';
 import fs from 'fs-extra';
 import outputFiles from 'output-files';
@@ -105,7 +106,11 @@ test('subpath underscore import', async ({}, testInfo) => {
 
 test('_index.scss in sass subfolder (e.g. bulma)', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
-  await fs.outputFile(pathLib.join(cwd, 'index.scss'), '@import "bulma/sass";');
+
+  await fs.outputFile(
+    pathLib.join(cwd, 'index.scss'),
+    `@import "${packageName`bulma`}/sass";`,
+  );
 
   const result = await depcheck(cwd, {
     package: {},
