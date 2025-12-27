@@ -39,6 +39,7 @@
     "@playwright/test": "^1.57.0",
     "@types/fs-extra": "^11.0.4",
     "@types/lodash-es": "^4.17.12",
+    "bulma": "^1.0.4",
     "depcheck": "^1.4.7",
     "endent": "npm:@dword-design/endent@^1.4.7",
     "fs-extra": "^11.3.2",

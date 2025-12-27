@@ -19,49 +19,13 @@ test('does not return duplicates', async ({}, testInfo) => {
     'node_modules/bar': { 'bar.scss': '', 'foo.scss': '' },
   });
 
-  expect(self(pathLib.join(cwd, 'index.scss'))).toEqual(['bar']);
+  expect(await self(pathLib.join(cwd, 'index.scss'))).toEqual(['bar']);
 });
 
 test('does not return relative imports', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
-
-  await outputFiles(cwd, {
-    'foo.scss': '',
-    'index.scss': endent`
-      @import 'bar';
-
-      @import './foo';
-    `,
-    'node_modules/bar': {
-      'index.scss': '',
-      'package.json': JSON.stringify({ main: 'index.scss' }),
-    },
-  });
-
-  expect(self(pathLib.join(cwd, 'index.scss'))).toEqual(['bar']);
-});
-
-test('error in subpath underscore import commonjs', async ({}, testInfo) => {
-  const cwd = testInfo.outputPath();
-
-  await outputFiles(cwd, {
-    'index.scss': "@import 'foo/sub'",
-    'node_modules/foo': {
-      '_sub.scss': '$foo: $bar;',
-      'package.json': JSON.stringify({ type: 'commonjs' }),
-    },
-  });
-
-  const result = await depcheck(cwd, {
-    package: { dependencies: { foo: '^1.0.0' } },
-    parsers: { '**/*.scss': self },
-  });
-
-  expect(Object.keys(result.invalidFiles).length).toEqual(1);
-
-  expect(
-    result.invalidFiles[pathLib.resolve(cwd, 'index.scss')].message,
-  ).toMatch('Undefined variable.');
+  await outputFiles(cwd, { 'foo.scss': '', 'index.scss': "@import './foo';" });
+  expect(await self(pathLib.join(cwd, 'index.scss'))).toEqual([]);
 });
 
 test('sass import', async ({}, testInfo) => {
@@ -88,15 +52,12 @@ test('sass import', async ({}, testInfo) => {
   expect(result.dependencies).toEqual([]);
 });
 
-test('subpath import commonjs', async ({}, testInfo) => {
+test('subpath import', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
 
   await outputFiles(cwd, {
     'index.scss': "@import 'foo/sub'",
-    'node_modules/foo': {
-      'package.json': JSON.stringify({ type: 'commonjs' }),
-      'sub.scss': '',
-    },
+    'node_modules/foo/sub.scss': '',
   });
 
   const result = await depcheck(cwd, {
@@ -126,15 +87,12 @@ test('subpath import esm', async ({}, testInfo) => {
   expect(result.dependencies).toEqual([]);
 });
 
-test('subpath underscore import commonjs', async ({}, testInfo) => {
+test('subpath underscore import', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
 
   await outputFiles(cwd, {
     'index.scss': "@import 'foo/sub'",
-    'node_modules/foo': {
-      '_sub.scss': '',
-      'package.json': JSON.stringify({ type: 'commonjs' }),
-    },
+    'node_modules/foo': { '_sub.scss': '' },
   });
 
   const result = await depcheck(cwd, {
@@ -145,9 +103,9 @@ test('subpath underscore import commonjs', async ({}, testInfo) => {
   expect(result.dependencies).toEqual([]);
 });
 
-test('underscore file', async ({}, testInfo) => {
+test('_index.scss in sass subfolder (e.g. bulma)', async ({}, testInfo) => {
   const cwd = testInfo.outputPath();
-  await fs.outputFile(pathLib.join(cwd, '_foo.scss'), '$foo: $bar');
+  await fs.outputFile(pathLib.join(cwd, 'index.scss'), '@import "bulma/sass";');
 
   const result = await depcheck(cwd, {
     package: {},

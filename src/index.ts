@@ -4,10 +4,11 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import enhancedResolve from 'enhanced-resolve';
 import getPackageName from 'get-package-name';
 import { compact, uniq } from 'lodash-es';
-import sass from 'sass';
+import * as sass from 'sass';
 
 const resolve = enhancedResolve.create.sync({
   extensions: ['.scss', '.sass', '.css'],
+  mainFiles: ['index', '_index'],
 });
 
 export default (filePath: string) => {
@@ -30,6 +31,7 @@ export default (filePath: string) => {
 
             return pathToFileURL(resolvedPath);
           } catch (error) {
+            // If we import something like foo/bar and there is foo/_bar.scss, we need to try that as well
             const urlWithUnderscore = url
               .split('/')
               .map((segment, index, arr) =>
