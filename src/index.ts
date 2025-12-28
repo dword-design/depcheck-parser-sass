@@ -12,10 +12,6 @@ const resolve = enhancedResolve.create.sync({
 });
 
 export default (filePath: string) => {
-  if (pathLib.basename(filePath).startsWith('_')) {
-    return [];
-  }
-
   const dir = pathLib.dirname(pathLib.resolve(filePath));
 
   const result = sass.compile(filePath, {
