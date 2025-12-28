@@ -1,3 +1,10 @@
+## [6.0.3](https://github.com/dword-design/depcheck-parser-sass/compare/v6.0.2...v6.0.3) (2025-12-28)
+
+
+### Bug Fixes
+
+* delete underscore check ([1b4a988](https://github.com/dword-design/depcheck-parser-sass/commit/1b4a988b5e6f0cf9e9576c7a7511269e4f85aee8))
+
 ## [6.0.2](https://github.com/dword-design/depcheck-parser-sass/compare/v6.0.1...v6.0.2) (2025-12-27)
 
 
